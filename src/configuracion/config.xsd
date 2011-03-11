@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="configuracion">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="puertoBD" type="xsd:string" />
+				<xsd:element name="driverBD" type="xsd:string" />
+				<xsd:element name="userBD" type="xsd:string" />
+				<xsd:element name="passBD" type="xsd:string" />
+				<xsd:element name="fuenteDatos" type="xsd:string" />
+				<xsd:element name="serverBD" type="xsd:string" />
+				<xsd:element name="protocoloBD" type="xsd:string" />
+				<xsd:element name="serverRMI" type="xsd:string" />
+				<xsd:element name="puertoRMI" type="xsd:string" />
+				<xsd:element name="servicioRMI" type="xsd:string" />
+				<xsd:element name="ficheroReservas" type="xsd:string" />
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
