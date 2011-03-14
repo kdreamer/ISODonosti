@@ -12,6 +12,7 @@ import java.rmi.RMISecurityManager;
 // ddd
 public class ServidorRemoto {
 	public static void main(String[] args) {
+		System.setProperty("java.policy", "java.policy");
 		System.setSecurityManager(new RMISecurityManager());
 		try {
 			java.rmi.registry.LocateRegistry
