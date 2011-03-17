@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuracion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="config.xsd" >
+	<puertoBD>3306</puertoBD>
+	<driverBD>sun.jdbc.odbc.JdbcOdbcDriver</driverBD>
+	<userBD></userBD>
+	<passBD></passBD>
+	<fuenteDatos>BDCasasRurales</fuenteDatos>
+	<serverBD>localhost</serverBD>
+	<protocoloBD>jdbc:odbc</protocoloBD>
+	<serverRMI>localhost</serverRMI>
+	<puertoRMI>1099</puertoRMI>
+	<servicioRMI>CasaRural2010</servicioRMI>
+	<ficheroReservas>numeroReserva.txt</ficheroReservas>
+</configuracion>

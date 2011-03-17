@@ -26,7 +26,8 @@ public final class GestorBD {
 	public static final String SERVER = conf.getServerBD();
 	public static final String PROTOCOLO = conf.getProtocoloBD();
 	public static final String DRIVER = conf.getDriverBD();
-	private static final String URL = PROTOCOLO + "://" + SERVER + "/" + FUENTE_DATOS;
+	//private static final String URL = PROTOCOLO + "://" + SERVER + "/" + FUENTE_DATOS;
+	private static final String URL = PROTOCOLO + ":"+ FUENTE_DATOS;
 	private static final String USER = conf.getUserBD();
 	private static final String PASS = conf.getPassBD();
 	private static GestorBD elGestorBD;

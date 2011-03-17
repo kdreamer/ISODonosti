@@ -369,7 +369,7 @@ public class PantallaInicio extends JFrame {
 	   try {
 				
 				// Nombre servicio remoto
-	      String servicio = "/CasaRural";
+	      String servicio = "/CasaRural2010";
 				System.setSecurityManager(new RMISecurityManager());
 				// Numero puerto servidor RMI
 	      int numPuerto = InterfazFachada.numPuerto;
@@ -380,7 +380,7 @@ public class PantallaInicio extends JFrame {
 			}
 
 			catch (Exception e) {
-				System.out.println(e.toString());
+				System.out.println(e.toString() + "Error aki");
 			}
 	    JFrame a = new PantallaInicio();
 	    a.setVisible(true);

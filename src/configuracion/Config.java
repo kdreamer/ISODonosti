@@ -64,12 +64,29 @@ public class Config {
 	private final String FICHERO_RESERVAS = "ficheroReservas";
 
 
+
 	private static Config instancia = new Config();
 
 	private static final String FICHERO = "src/configuracion/config.xml";
 	private static final String SCHEMA = "src/configuracion/config.xsd";
 
 	private Config() {
+		
+		/*
+		fuenteDatos= "BDCasasRurales";
+		protocoloBD = "jdbc:odbc";
+		puertoBD  ="3306";
+		driverBD ="sun.jdbc.odbc.JdbcOdbcDriver";
+		serverBD = "localhost";
+		serverRMI = "localhost";
+		puertoRMI = "1099";
+		servicioRMI = "casaRural2010";
+		ficheroReservas= "numeroReserva.txt";
+
+	urlBD = protocoloBD + "://" + serverBD + ":" + puertoBD + "/" + fuenteDatos;
+		urlBD= protocoloBD+ ":" + fuenteDatos;
+urlRMI = "rmi://" + serverRMI + ":" + puertoRMI + "/" + servicioRMI;
+		*/
 		try {
 			if (!validarXML()) {
 				System.out.println("Error en la configuracion de la aplicacion.");
@@ -89,9 +106,10 @@ public class Config {
 			puertoRMI = raiz.getChild(PUERTO_RMI).getText();
 			servicioRMI = raiz.getChild(SERVICIO_RMI).getText();
 			ficheroReservas = raiz.getChild(FICHERO_RESERVAS).getText();
-			urlBD = protocoloBD + "://" + serverBD + ":" + puertoBD + "/"
-					+ fuenteDatos;
+			urlBD = protocoloBD + ":"+ fuenteDatos;
 			urlRMI = "rmi://" + serverRMI + ":" + puertoRMI + "/" + servicioRMI;
+			
+			
 		} catch (JDOMException e1) {
 			System.out.println("Error al leer el fichero de configuracion.\n");
 			System.out.println(e1.getMessage());
@@ -100,7 +118,10 @@ public class Config {
 			System.out
 					.println("No se ha podido leer el fichero de configuracion.\n");
 			System.exit(-2);
+			
+		
 		}
+		
 	}
 
 	private boolean validarXML() {
