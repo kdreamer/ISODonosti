@@ -9,6 +9,6 @@
 	<protocoloBD>jdbc:odbc</protocoloBD>
 	<serverRMI>localhost</serverRMI>
 	<puertoRMI>1099</puertoRMI>
-	<servicioRMI>CasaRural2010</servicioRMI>
+	<servicioRMI>CasaRural2011</servicioRMI>
 	<ficheroReservas>numeroReserva.txt</ficheroReservas>
 </configuracion>

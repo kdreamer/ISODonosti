@@ -26,6 +26,7 @@ public final class GestorBD {
 	public static final String SERVER = conf.getServerBD();
 	public static final String PROTOCOLO = conf.getProtocoloBD();
 	public static final String DRIVER = conf.getDriverBD();
+	public static final String	SERVERRMI= conf.getServerRMI();
 	//private static final String URL = PROTOCOLO + "://" + SERVER + "/" + FUENTE_DATOS;
 	private static final String URL = PROTOCOLO + ":"+ FUENTE_DATOS;
 	private static final String USER = conf.getUserBD();
@@ -43,17 +44,17 @@ public final class GestorBD {
 	 * @throws SQLException 
 	 */
 	private GestorBD() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
-//		try {
+		try {
 			Class.forName(DRIVER).newInstance();
 			c = DriverManager.getConnection(URL, USER, PASS);
 			c.setAutoCommit(true);
 			s = c.createStatement();
-//		} catch (Exception ex) {
-//			System.out
-//					.println("Error realizando la conexion con la base de datos: "
-//							+ FUENTE_DATOS + "\n\t" + ex.toString());
-//			
-//		}
+	} catch (Exception ex) {
+			System.out
+					.println("Error realizando la conexion con la base de datos: "
+							+ FUENTE_DATOS + "\n\t" + ex.toString());
+			
+		}
 	}
 
 	/**

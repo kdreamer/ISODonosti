@@ -369,12 +369,13 @@ public class PantallaInicio extends JFrame {
 	   try {
 				
 				// Nombre servicio remoto
-	      String servicio = "/CasaRural2010";
+	      String servicio = "/CasaRural2011";
 				System.setSecurityManager(new RMISecurityManager());
 				// Numero puerto servidor RMI
 	      int numPuerto = InterfazFachada.numPuerto;
 	      // IP maquina servidor RMI
 				String maquina = IPMAQUINA;
+				System.out.println("rmi://" + maquina + ":" + numPuerto + servicio);
 				interfazfachada = (InterfazFachada) Naming.lookup("rmi://" + maquina + ":" + numPuerto + servicio);
 				
 			}

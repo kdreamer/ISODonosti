@@ -183,6 +183,7 @@ urlRMI = "rmi://" + serverRMI + ":" + puertoRMI + "/" + servicioRMI;
 	}
 
 	public String getServicioRMI() {
+		System.out.println("FEO "+ servicioRMI);
 		return servicioRMI;
 	}
 

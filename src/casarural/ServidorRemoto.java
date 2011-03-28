@@ -22,8 +22,9 @@ public class ServidorRemoto {
 
 		try {
 			ClaseFachada servidor = new ClaseFachada();
-			String servicio = "//localhost:" + InterfazFachada.numPuerto
-					+ "/CasaRural2010";
+			String servicio="CasaRural2011";
+			//String servicio = "//localhost:" + InterfazFachada.numPuerto
+					//+ "/CasaRural2011";
 			// Resgistrar el servicio remoto
 			Naming.rebind(servicio, servidor);
 			System.out.println("HOLA HOLA Servicio lanzado en:\n\t" + servicio);
