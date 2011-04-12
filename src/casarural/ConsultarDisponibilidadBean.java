@@ -7,11 +7,24 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 import java.lang.*;
 
+/**
+ * @author  kdreamer
+ */
 public class ConsultarDisponibilidadBean {
+	/**
+	 * @uml.property  name="logNeg"
+	 * @uml.associationEnd  
+	 */
 	InterfazFachada logNeg;
 
+	/**
+	 * @uml.property  name="numCasa"
+	 */
 	private int numCasa;
 
+	/**
+	 * @uml.property  name="diaIni"
+	 */
 	private String diaIni;
 
 	private Date diaIniDate;
@@ -20,6 +33,9 @@ public class ConsultarDisponibilidadBean {
 
 	private Date diaFinDate;
 
+	/**
+	 * @uml.property  name="numNoches"
+	 */
 	private int numNoches;
 
 	private long numNochesM;
@@ -50,10 +66,9 @@ public class ConsultarDisponibilidadBean {
 
 	/**
 	 * Asigna el codigo de la casa al de la instancia actual
-	 * 
-	 * @param El
-	 *            codigo de la casa
-	 * @return Ninguno
+	 * @param El  codigo de la casa
+	 * @return  Ninguno
+	 * @uml.property  name="numCasa"
 	 */
 	public void setNumCasa(int numCasa) {
 		this.numCasa = numCasa;
@@ -61,9 +76,9 @@ public class ConsultarDisponibilidadBean {
 
 	/**
 	 * Devuelve el codigo de la casa
-	 * 
 	 * @param Ninguno
-	 * @return El codigo de la casa
+	 * @return  El codigo de la casa
+	 * @uml.property  name="numCasa"
 	 */
 	public int getNumCasa() {
 		return numCasa;
@@ -71,10 +86,9 @@ public class ConsultarDisponibilidadBean {
 
 	/**
 	 * Asigna el dia de inicio de la reserva al de la instancia actual
-	 * 
-	 * @param El
-	 *            dia de inicio de la reserva
-	 * @return Ninguno
+	 * @param El  dia de inicio de la reserva
+	 * @return  Ninguno
+	 * @uml.property  name="diaIni"
 	 */
 	public void setDiaIni(String i) {
 		diaIni = i;
@@ -88,9 +102,9 @@ public class ConsultarDisponibilidadBean {
 
 	/**
 	 * Devuelve el dia de inicio de la reserva
-	 * 
 	 * @param Ninguno
-	 * @return El dia de inicio de la reserva
+	 * @return  El dia de inicio de la reserva
+	 * @uml.property  name="diaIni"
 	 */
 	public String getDiaIni() {
 		return diaIni;
@@ -98,10 +112,9 @@ public class ConsultarDisponibilidadBean {
 
 	/**
 	 * Asigna el numero de noches
-	 * 
-	 * @param El
-	 *            numero de noches
-	 * @return Ninguno
+	 * @param El  numero de noches
+	 * @return  Ninguno
+	 * @uml.property  name="numNoches"
 	 */
 	public void setNumNoches(int s) {
 		numNoches = s;
@@ -110,9 +123,9 @@ public class ConsultarDisponibilidadBean {
 
 	/**
 	 * Devuelve el numero de noches
-	 * 
 	 * @param Ninguno
-	 * @return El numero de noches
+	 * @return  El numero de noches
+	 * @uml.property  name="numNoches"
 	 */
 	public int getNumNoches() {
 		return numNoches;

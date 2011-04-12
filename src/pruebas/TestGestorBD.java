@@ -14,11 +14,14 @@ import casarural.Oferta;
 import junit.framework.TestCase;
 
 /**
- * @author JORGE
- *
+ * @author  JORGE
  */
 public class TestGestorBD extends TestCase {
 
+	/**
+	 * @uml.property  name="gestorBD"
+	 * @uml.associationEnd  
+	 */
 	private GestorBD gestorBD;
 
 	/**

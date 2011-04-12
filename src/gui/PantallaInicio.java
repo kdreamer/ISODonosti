@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
+import configuracion.Config;
+
 import casarural.InterfazFachada;
 
 
@@ -52,6 +54,10 @@ public class PantallaInicio extends JFrame {
 	
 	private JButton boton7 = null;
 	
+	private JPanel pLoginAdmin = null;
+	
+	private JButton boton8 = null;
+	
 	public static InterfazFachada interfazfachada;
 
 	/**
@@ -69,7 +75,7 @@ public class PantallaInicio extends JFrame {
 	 * @return void
 	 */
 	private void initialize() {
-		this.setSize(271, 295);
+		this.setSize(300, 350);
 		this.setContentPane(getJContentPane());
 		this.setTitle("Casas Rurales");
 	}
@@ -89,6 +95,7 @@ public class PantallaInicio extends JFrame {
 			jContentPane.add(getPMejor(), null);
 			jContentPane.add(getPBuscar(), null);
 			jContentPane.add(getPAnular(),null);
+			jContentPane.add(getPLoginAdmin(), null);
 			jContentPane.add(getPSalir(), null);
 
 		}
@@ -320,6 +327,7 @@ public class PantallaInicio extends JFrame {
 		}
 		return boton6;
 	}
+	
 	/**
 	 * Este método inicializa el Panel pAnular
 	 * 	
@@ -358,6 +366,44 @@ public class PantallaInicio extends JFrame {
 		return boton7;
 	}
 	
+	/**
+	 * Este método inicializa el Panel pAnular
+	 * 	
+	 * @return javax.swing.JPanel	
+	 */
+	private JPanel getPLoginAdmin() {
+		if (pLoginAdmin == null) {
+			GridBagConstraints gridBagConstraints = new GridBagConstraints();
+			gridBagConstraints.gridx = -1;
+			gridBagConstraints.insets = new Insets(5, 0, 5, 0);
+			gridBagConstraints.ipadx = 42;
+			gridBagConstraints.gridy = -1;
+			pLoginAdmin = new JPanel();
+			pLoginAdmin.setLayout(new GridBagLayout());
+			pLoginAdmin.add(getBoton8(), gridBagConstraints);
+		}
+		return pLoginAdmin;
+	}
+
+	/**
+	 * Con este botón se abre la interfaz de login del administrador.
+	 * 	
+	 * @return javax.swing.JButton	
+	 */
+	private JButton getBoton8() {
+		if (boton8 == null) {
+			boton8 = new JButton();
+			boton8.setText("Login Administrador");
+			boton8.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+				    LoginAdministrador la = new LoginAdministrador();
+				    la.setVisible(true);
+				}
+			});
+		}
+		return boton8;
+	}
+	
 	  public static void main(String[] args)
 	  {
 	  	final String IPMAQUINA = "localhost";
@@ -368,20 +414,26 @@ public class PantallaInicio extends JFrame {
 	    // mediante RMI
 	   try {
 				
-				// Nombre servicio remoto
-	      String servicio = "/CasaRural2011";
-				System.setSecurityManager(new RMISecurityManager());
-				// Numero puerto servidor RMI
-	      int numPuerto = InterfazFachada.numPuerto;
+			
+	      Config conf = Config.getInstance();
+	  	// Nombre servicio remoto
+	      String servicio =conf.getServicioRMI(); //modifiar esto para que lo pille desde el xml
+		System.setSecurityManager(new RMISecurityManager());
+		// Numero puerto servidor RMI
+	      int numPuerto = InterfazFachada.numPuerto;//No es mejor coger los datos del xml?????
 	      // IP maquina servidor RMI
-				String maquina = IPMAQUINA;
-				System.out.println("rmi://" + maquina + ":" + numPuerto + servicio);
-				interfazfachada = (InterfazFachada) Naming.lookup("rmi://" + maquina + ":" + numPuerto + servicio);
+				String maquina = conf.getServerRMI();
+				//System.out.println("rmi://" + maquina + ":" + numPuerto + servicio);
+				interfazfachada = (InterfazFachada) Naming.lookup("rmi://" + maquina + ":" + numPuerto + "/" + servicio);
 				
+
 			}
 
 			catch (Exception e) {
-				System.out.println(e.toString() + "Error aki");
+				System.out.println("aki es donde falla en pantallaInicio");
+				e.printStackTrace();
+
+				System.out.println(e.toString());
 			}
 	    JFrame a = new PantallaInicio();
 	    a.setVisible(true);

@@ -7,7 +7,13 @@ import java.io.*;
 
 import excepciones.NoSePuedeReservarException;
 
+/**
+ * @author  kdreamer
+ */
 public class OfertasEnMemoriaPrincipal implements Serializable {
+	/**
+	 * @uml.property  name="ofertas"
+	 */
 	private Vector ofertas = new Vector();
 
 	public OfertasEnMemoriaPrincipal() {
@@ -344,8 +350,8 @@ public class OfertasEnMemoriaPrincipal implements Serializable {
 
 	/**
 	 * Devuelve todas las ofertas
-	 * 
-	 * @return Las ofertas
+	 * @return  Las ofertas
+	 * @uml.property  name="ofertas"
 	 */
 	public Vector getOfertas() {
 		return ofertas;

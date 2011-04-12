@@ -3,8 +3,15 @@ package pruebas;
 import configuracion.Config;
 import junit.framework.TestCase;
 
+/**
+ * @author  kdreamer
+ */
 public class TestConfiguracion extends TestCase {
 
+	/**
+	 * @uml.property  name="config"
+	 * @uml.associationEnd  
+	 */
 	private Config config;
 
 	public TestConfiguracion(String name) {

@@ -9,8 +9,15 @@ import casarural.GestorOfertas;
 import casarural.Oferta;
 import junit.framework.TestCase;
 
+/**
+ * @author  kdreamer
+ */
 public class TestGestorOfertas extends TestCase {
 	
+	/**
+	 * @uml.property  name="gestorOfertas"
+	 * @uml.associationEnd  
+	 */
 	private GestorOfertas gestorOfertas;
 	
 	public TestGestorOfertas(String nombre) {

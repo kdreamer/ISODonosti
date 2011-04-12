@@ -6,18 +6,40 @@ import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
+/**
+ * @author  kdreamer
+ */
 public class AsignarDisponibilidadBean 
 {
-  InterfazFachada logNeg;
-  private int numCasa;
+  /**
+ * @uml.property  name="logNeg"
+ * @uml.associationEnd  
+ */
+InterfazFachada logNeg;
+  /**
+ * @uml.property  name="numCasa"
+ */
+private int numCasa;
   
-  private String diaIni;
+  /**
+ * @uml.property  name="diaIni"
+ */
+private String diaIni;
   private Date diaIniDate;
-  private String diaFin;
+  /**
+ * @uml.property  name="diaFin"
+ */
+private String diaFin;
   private Date diaFinDate;
   private float precio;
-  private String precioString;
-  private String codPropietario;
+  /**
+ * @uml.property  name="precioString"
+ */
+private String precioString;
+  /**
+ * @uml.property  name="codPropietario"
+ */
+private String codPropietario;
   
   /**Constructor de la clase AsignarDisponibilidadBean
   *@param Ninguno
@@ -33,47 +55,57 @@ public class AsignarDisponibilidadBean
   }
   
   
-  /**Asigna el codigo de la casa al de la instancia actual
-  *@param El codigo de la casa
-  *@return Ninguno
-  */
+  /**
+ * Asigna el codigo de la casa al de la instancia actual
+ * @param El  codigo de la casa
+ * @return  Ninguno
+ * @uml.property  name="numCasa"
+ */
   public void setNumCasa(int numCasa)
   {
     this.numCasa = numCasa;
   }
   
-  /**Devuelve el codigo de la casa
-  *@param Ninguno
-  *@return El codigo de la casa
-  */
+  /**
+ * Devuelve el codigo de la casa
+ * @param Ninguno
+ * @return  El codigo de la casa
+ * @uml.property  name="numCasa"
+ */
    public int getNumCasa()
   {
     return numCasa;
   }
   
- /**Asigna el precio de la casa al de la instancia actual
-  *@param El precio de la casa
-  *@return Ninguno
-  */
+ /**
+ * Asigna el precio de la casa al de la instancia actual
+ * @param El  precio de la casa
+ * @return  Ninguno
+ * @uml.property  name="precioString"
+ */
  public void setPrecioString(String i)
   {
     this.precioString = i;
     this.precio= Float.parseFloat(i);
   }
   
-  /**Devuelve el precio de la casa
-  *@param Ninguno
-  *@return El precio de la casa
-  */
+  /**
+ * Devuelve el precio de la casa
+ * @param Ninguno
+ * @return  El precio de la casa
+ * @uml.property  name="precioString"
+ */
    public float getPrecioString()
   {
     return precio;
   }
   
-  /**Asigna el dia de inicio de la reserva al de la instancia actual
-  *@param El dia de inicio de la reserva
-  *@return Ninguno
-  */
+  /**
+ * Asigna el dia de inicio de la reserva al de la instancia actual
+ * @param El  dia de inicio de la reserva
+ * @return  Ninguno
+ * @uml.property  name="diaIni"
+ */
  public void setDiaIni(String i)
   {
     diaIni=i;
@@ -85,19 +117,23 @@ public class AsignarDisponibilidadBean
     diaIniDate = new Date(gc.getTime().getTime());
   }
   
-  /**Devuelve el dia de inicio de la reserva
-  *@param Ninguno
-  *@return El dia de inicio de la reserva
-  */
+  /**
+ * Devuelve el dia de inicio de la reserva
+ * @param Ninguno
+ * @return  El dia de inicio de la reserva
+ * @uml.property  name="diaIni"
+ */
    public String getDiaIni()
   {
     return diaIni;
   }
   
-  /**Asigna el dia de fin de la reserva al de la instancia actual
-  *@param El dia de fin de la reserva
-  *@return Ninguno
-  */
+  /**
+ * Asigna el dia de fin de la reserva al de la instancia actual
+ * @param El  dia de fin de la reserva
+ * @return  Ninguno
+ * @uml.property  name="diaFin"
+ */
    public void setDiaFin(String i)
   {
     diaFin=i;
@@ -109,28 +145,34 @@ public class AsignarDisponibilidadBean
     diaFinDate = new Date(gc.getTime().getTime());
   }
   
-  /**Devuelve el dia de fin de la reserva
-  *@param Ninguno
-  *@return El dia de fin de la reserva
-  */
+  /**
+ * Devuelve el dia de fin de la reserva
+ * @param Ninguno
+ * @return  El dia de fin de la reserva
+ * @uml.property  name="diaFin"
+ */
    public String getDiaFin()
   {
     return diaFin;
   }
   
-  /**Asigna el codigo de propietario al de la instancia actual
-  *@param El codigo de propietario
-  *@return Ninguno
-  */
+  /**
+ * Asigna el codigo de propietario al de la instancia actual
+ * @param El  codigo de propietario
+ * @return  Ninguno
+ * @uml.property  name="codPropietario"
+ */
    public void setCodPropietario(String codPropietario)
   {
     this.codPropietario = codPropietario;
   }
   
-  /**Devuelve el codigo de propietario
-  *@param Ninguno
-  *@return El codigo de propietario
-  */
+  /**
+ * Devuelve el codigo de propietario
+ * @param Ninguno
+ * @return  El codigo de propietario
+ * @uml.property  name="codPropietario"
+ */
   public String getCodPropietario()
   {
     return codPropietario;

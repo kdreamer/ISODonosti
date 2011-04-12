@@ -7,23 +7,48 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Vector;
 
+/**
+ * @author  kdreamer
+ */
 public class MejorOfertaBean {
+	/**
+	 * @uml.property  name="logNeg"
+	 * @uml.associationEnd  
+	 */
 	InterfazFachada logNeg;
 
+	/**
+	 * @uml.property  name="numCasa"
+	 */
 	private int numCasa;
 
+	/**
+	 * @uml.property  name="diaIni"
+	 */
 	private String diaIni;
 
 	private Date diaIniDate;
 
+	/**
+	 * @uml.property  name="diaFin"
+	 */
 	private String diaFin;
 
 	private Date diaFinDate;
 
+	/**
+	 * @uml.property  name="habitaciones"
+	 */
 	private int habitaciones;
 
+	/**
+	 * @uml.property  name="banos"
+	 */
 	private int banos;
 
+	/**
+	 * @uml.property  name="criterio"
+	 */
 	private String criterio;
 
 	public MejorOfertaBean() {
@@ -51,10 +76,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Asigna el codigo de la casa al de la instancia actual
-	 * 
-	 * @param El
-	 *            codigo de la casa
-	 * @return Ninguno
+	 * @param El  codigo de la casa
+	 * @return  Ninguno
+	 * @uml.property  name="numCasa"
 	 */
 	public void setNumCasa(int numCasa) {
 		this.numCasa = numCasa;
@@ -62,9 +86,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Devuelve el codigo de la casa
-	 * 
 	 * @param Ninguno
-	 * @return El codigo de la casa
+	 * @return  El codigo de la casa
+	 * @uml.property  name="numCasa"
 	 */
 	public int getNumCasa() {
 		return numCasa;
@@ -72,10 +96,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Asigna el dia de inicio de la reserva al de la instancia actual
-	 * 
-	 * @param El
-	 *            dia de inicio de la reserva
-	 * @return Ninguno
+	 * @param El  dia de inicio de la reserva
+	 * @return  Ninguno
+	 * @uml.property  name="diaIni"
 	 */
 	public void setDiaIni(String i) {
 		diaIni = i;
@@ -89,9 +112,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Devuelve el dia de inicio de la reserva
-	 * 
 	 * @param Ninguno
-	 * @return El dia de inicio de la reserva
+	 * @return  El dia de inicio de la reserva
+	 * @uml.property  name="diaIni"
 	 */
 	public String getDiaIni() {
 		return diaIni;
@@ -99,10 +122,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Asigna el dia final de la reserva al de la instancia actual
-	 * 
-	 * @param El
-	 *            dia de fin de la reserva
-	 * @return Ninguno
+	 * @param El  dia de fin de la reserva
+	 * @return  Ninguno
+	 * @uml.property  name="diaFin"
 	 */
 	public void setDiaFin(String i) {
 		diaFin = i;
@@ -116,9 +138,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Devuelve el dia de fin de la reserva
-	 * 
 	 * @param Ninguno
-	 * @return El dia de fin de la reserva
+	 * @return  El dia de fin de la reserva
+	 * @uml.property  name="diaFin"
 	 */
 	public String getDiaFin() {
 		return diaFin;
@@ -146,10 +168,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Asigna el numero de habitaciones a la instancia actual
-	 * 
-	 * @param numero
-	 *            de habitaciones
-	 * @return Ninguno
+	 * @param numero  de habitaciones
+	 * @return  Ninguno
+	 * @uml.property  name="habitaciones"
 	 */
 	public void setHabitaciones(int numHabs) {
 		this.habitaciones = numHabs;
@@ -157,9 +178,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Devuelve el numero de habitaciones
-	 * 
 	 * @param Ninguno
-	 * @return El numero de habitaciones
+	 * @return  El numero de habitaciones
+	 * @uml.property  name="habitaciones"
 	 */
 	public int getHabitaciones() {
 		return habitaciones;
@@ -167,10 +188,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Asigna el numero de baños a la instancia actual
-	 * 
-	 * @param numero
-	 *            de baños
-	 * @return Ninguno
+	 * @param numero  de baños
+	 * @return  Ninguno
+	 * @uml.property  name="banos"
 	 */
 	public void setBanos(int numBanos) {
 		this.banos = numBanos;
@@ -178,9 +198,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Devuelve el numero de baños
-	 * 
 	 * @param Ninguno
-	 * @return El numero de baños
+	 * @return  El numero de baños
+	 * @uml.property  name="banos"
 	 */
 	public int getBanos() {
 		return banos;
@@ -188,9 +208,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Asigna el criterio
-	 * 
 	 * @param Criterio
 	 * @return
+	 * @uml.property  name="criterio"
 	 */
 	public void setCriterio(String criterio) {
 		this.criterio = criterio;
@@ -198,9 +218,9 @@ public class MejorOfertaBean {
 
 	/**
 	 * Devuelve el criterio
-	 * 
 	 * @param Ninguno
-	 * @return El criterio
+	 * @return  El criterio
+	 * @uml.property  name="criterio"
 	 */
 	public String getCriterio() {
 		return this.criterio;

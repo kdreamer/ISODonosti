@@ -18,21 +18,20 @@ import javax.swing.JLabel;
 import java.awt.Rectangle;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
-import javax.swing.JTextArea;
 import javax.swing.JButton;
-import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollBar;
-import javax.swing.JPanel;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.Color;
 import java.util.GregorianCalendar;
 public class ReservarCasa extends JFrame
 {
-  private JLabel jLabel1 = new JLabel();
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private JLabel jLabel1 = new JLabel();
   private JTextField jTextField1 = new JTextField();
   private JLabel jLabel2 = new JLabel();
   private JLabel jLabel3 = new JLabel();
@@ -42,6 +41,7 @@ public class ReservarCasa extends JFrame
   private JTextField jTextField4 = new JTextField();
   private JButton jButton2 = new JButton();
   private JButton jButton3 = new JButton();
+  private JCheckBox checkServicioRecogida;
   
   // Codigo para el JCalendar
   private JCalendar jCalendar1 = new JCalendar();
@@ -112,7 +112,7 @@ int dia=cal.get(Calendar.DAY_OF_MONTH);
   private void jbInit() throws Exception
   {
     this.getContentPane().setLayout(null);
-    this.setSize(new Dimension(410, 413));
+    this.setSize(new Dimension(410, 460));
     this.setTitle("Reservar casa rural");
     jLabel1.setText("Codigo de la casa:");
     jLabel1.setBounds(new Rectangle(15, 10, 115, 20));
@@ -165,7 +165,7 @@ int dia=cal.get(Calendar.DAY_OF_MONTH);
     jTextField4.setBounds(new Rectangle(155, 270, 140, 20));
     jTextField4.setText("0");
     jButton2.setText("Aceptar");
-    jButton2.setBounds(new Rectangle(50, 345, 130, 30));
+    jButton2.setBounds(new Rectangle(50, 385, 130, 30));
     jButton2.setSize(new Dimension(130, 30));
     jButton2.addActionListener(new ActionListener()
       {
@@ -202,7 +202,7 @@ int dia=cal.get(Calendar.DAY_OF_MONTH);
         }
       });
     jButton3.setText("Cancelar");
-    jButton3.setBounds(new Rectangle(220, 345, 130, 30));
+    jButton3.setBounds(new Rectangle(220, 385, 130, 30));
     jButton3.setSize(new Dimension(130, 30));
     jButton3.addActionListener(new ActionListener()
       {
@@ -211,7 +211,7 @@ int dia=cal.get(Calendar.DAY_OF_MONTH);
           jButton3_actionPerformed(e);
         }
       });
-    jLabel5.setBounds(new Rectangle(50, 310, 300, 20));
+    jLabel5.setBounds(new Rectangle(50, 354, 300, 20));
     jLabel5.setForeground(Color.red);
     jCalendar1.setBounds(new Rectangle(155, 50, 235, 145));
     this.getContentPane().add(jCalendar1, null);
@@ -226,6 +226,24 @@ int dia=cal.get(Calendar.DAY_OF_MONTH);
     this.getContentPane().add(jLabel2, null);
     this.getContentPane().add(jTextField1, null);
     this.getContentPane().add(jLabel1, null);
+    
+    checkServicioRecogida = new JCheckBox("Reservar servicio de recogida");
+    checkServicioRecogida.addActionListener(new ActionListener() {
+    	public void actionPerformed(ActionEvent e) {
+    		if (checkServicioRecogida.isSelected()) {
+    			ReservarCasa.this.setSize(new Dimension(410, 600));
+    			jButton2.setBounds(50, 525, 130, 30);
+    			jButton3.setBounds(220, 525, 130, 30);
+    		}
+    		else {
+    			ReservarCasa.this.setSize(new Dimension(410, 460));
+    			jButton2.setBounds(50, 385, 130, 30);
+    			jButton3.setBounds(220, 385, 130, 30);
+    		}
+    	}
+    });
+    checkServicioRecogida.setBounds(15, 324, 209, 23);
+    getContentPane().add(checkServicioRecogida);
     
     // Codigo para el JCalendar
     this.jCalendar1.addPropertyChangeListener(new PropertyChangeListener()
@@ -297,5 +315,4 @@ int dia=cal.get(Calendar.DAY_OF_MONTH);
     jLabel5.setText("Error: Introduzca un numero");
   }
  }
- 
 }

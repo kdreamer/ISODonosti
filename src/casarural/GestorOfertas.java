@@ -14,14 +14,29 @@ import java.util.Enumeration;
 
 import excepciones.NoSePuedeReservarException;
 
+/**
+ * @author  kdreamer
+ */
 public final class GestorOfertas {
+	/**
+	 * @uml.property  name="gbd"
+	 * @uml.associationEnd  
+	 */
 	accesoDatos.GestorBD gbd;
 
 	// ///// LO PONGO YO
+	/**
+	 * @uml.property  name="gcr"
+	 * @uml.associationEnd  
+	 */
 	GestorCasasRurales gcr;
 
 	// ////////
 
+	/**
+	 * @uml.property  name="elGestorOfertas"
+	 * @uml.associationEnd  
+	 */
 	private static GestorOfertas elGestorOfertas;
 
 	private GestorOfertas() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {

@@ -12,16 +12,34 @@ import java.util.Vector;
 
 import excepciones.NoSePuedeReservarException;
 
+/**
+ * @author  kdreamer
+ */
 public class ClaseFachada extends UnicastRemoteObject implements InterfazFachada {
 	
+	/**
+	 * @uml.property  name="elGestorCasasRurales"
+	 * @uml.associationEnd  
+	 */
 	GestorCasasRurales elGestorCasasRurales=GestorCasasRurales.getInstance();
+	/**
+	 * @uml.property  name="elGestorReservas"
+	 * @uml.associationEnd  
+	 */
 	GestorReservas elGestorReservas;
+	/**
+	 * @uml.property  name="elGestorOfertas"
+	 * @uml.associationEnd  
+	 */
 	GestorOfertas elGestorOfertas;
+	
+	Login elGestorLogin;
 	
 	public ClaseFachada() throws RemoteException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
   {
 		 elGestorReservas=GestorReservas.getInstance();
 		 elGestorOfertas=GestorOfertas.getInstance();
+		 elGestorLogin= Login.getInstance(); 
 	}
 	/*
 	public Float calcular(Float op1, Float op2) throws RemoteException {
@@ -164,6 +182,10 @@ public class ClaseFachada extends UnicastRemoteObject implements InterfazFachada
 	public Vector buscarOfertas(Date diaIni, Date diaFin, Float precioMax, int diasMin, int dormitorios, int banos, boolean orden) throws RemoteException, Exception {
 		 return elGestorOfertas.buscarOfertas(diaIni, diaFin, precioMax,
 				 	diasMin, dormitorios, banos, orden);
+	}
+
+	public Boolean hacerLogin(String pAlias, String pPassword)throws RemoteException,Exception {
+		return elGestorLogin.identificarse(pAlias, pPassword);
 	}
 
 }

@@ -4,17 +4,36 @@ import java.sql.Date;
 import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
 
+/**
+ * @author  kdreamer
+ */
 public class ReservarCasaBean 
 {
-  InterfazFachada logNeg;
-  private int numCasa;
-  private String diaIni;
+  /**
+ * @uml.property  name="logNeg"
+ * @uml.associationEnd  
+ */
+InterfazFachada logNeg;
+  /**
+ * @uml.property  name="numCasa"
+ */
+private int numCasa;
+  /**
+ * @uml.property  name="diaIni"
+ */
+private String diaIni;
   private Date diaIniDate;
   private String diaFin;
   private Date diaFinDate;
-  private int numNoches;
+  /**
+ * @uml.property  name="numNoches"
+ */
+private int numNoches;
   private long numNochesM;
-  private String numTfnoReserva;
+  /**
+ * @uml.property  name="numTfnoReserva"
+ */
+private String numTfnoReserva;
   
  /**Constructor de la clase ReservarCasaBean
   *@param Ninguno
@@ -28,35 +47,43 @@ public class ReservarCasaBean
     }
     catch(Exception e) {System.out.println("Error al conseguir la logica del negocio: "+e.toString());}
   }
-  /**Devuelve el codigo de la casa
-  *@param Ninguno
-  *@return El codigo de la casa
-  */
+  /**
+ * Devuelve el codigo de la casa
+ * @param Ninguno
+ * @return  El codigo de la casa
+ * @uml.property  name="numCasa"
+ */
   public int getNumCasa()
   {
     return numCasa;
   }
-  /**Asigna el codigo de la casa al de la instancia actual
-  *@param El codigo de la casa
-  *@return Ninguno
-  */
+  /**
+ * Asigna el codigo de la casa al de la instancia actual
+ * @param El  codigo de la casa
+ * @return  Ninguno
+ * @uml.property  name="numCasa"
+ */
    public void setNumCasa(int n)
   {
     numCasa=n;
     System.out.println("numCasa set to "+ n);
   }
-  /**Devuelve el dia de inicio de la reserva
-  *@param Ninguno
-  *@return El dia de inicio de la reserva
-  */
+  /**
+ * Devuelve el dia de inicio de la reserva
+ * @param Ninguno
+ * @return  El dia de inicio de la reserva
+ * @uml.property  name="diaIni"
+ */
   public String getDiaIni ()
   {
     return diaIni;
   }
-  /**Asigna el dia de fin de la reserva al de la instancia actual
-  *@param El dia de fin de la reserva
-  *@return Ninguno
-  */
+  /**
+ * Asigna el dia de fin de la reserva al de la instancia actual
+ * @param El  dia de fin de la reserva
+ * @return  Ninguno
+ * @uml.property  name="diaIni"
+ */
   public void setDiaIni(String i)
   {
     diaIni=i;
@@ -70,18 +97,22 @@ public class ReservarCasaBean
     System.out.println("diaIni set to "+ diaIni);
     System.out.println("diaIniDate set to "+ diaIniDate.toString());
   }
-  /**Devuelve el numero de noches
-  *@param Ninguno
-  *@return El numero de noches
-  */
+  /**
+ * Devuelve el numero de noches
+ * @param Ninguno
+ * @return  El numero de noches
+ * @uml.property  name="numNoches"
+ */
    public int getNumNoches()
   {
     return numNoches;
   }
-  /**Asigna el numero de noches
-  *@param El numero de noches
-  *@return Ninguno
-  */
+  /**
+ * Asigna el numero de noches
+ * @param El  numero de noches
+ * @return  Ninguno
+ * @uml.property  name="numNoches"
+ */
   public void setNumNoches(int s)
   {
     numNoches=s;
@@ -89,18 +120,22 @@ public class ReservarCasaBean
     System.out.println("numNoches set to "+ numNoches);
     System.out.println("numNochesM set to "+ numNochesM);
   }
-  /**Devuelve el numero de telefono
-  *@param Ninguno
-  *@return El numero de telefono
-  */
+  /**
+ * Devuelve el numero de telefono
+ * @param Ninguno
+ * @return  El numero de telefono
+ * @uml.property  name="numTfnoReserva"
+ */
   public String getNumTfnoReserva()
   {
     return numTfnoReserva;
   }
-  /**Asigna el numero de telefono
-  *@param El numero de telefono
-  *@return Ninguno
-  */
+  /**
+ * Asigna el numero de telefono
+ * @param El  numero de telefono
+ * @return  Ninguno
+ * @uml.property  name="numTfnoReserva"
+ */
   public void setNumTfnoReserva(String t)
   {
     numTfnoReserva=t;

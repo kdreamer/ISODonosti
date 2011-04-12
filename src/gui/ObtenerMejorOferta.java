@@ -20,6 +20,9 @@ import java.util.*;
 
 import java.sql.*;
 import java.sql.Date;
+/**
+ * @author  kdreamer
+ */
 public class ObtenerMejorOferta extends JApplet 
 {
   private JLabel jLabel1 = new JLabel();
@@ -35,6 +38,10 @@ public class ObtenerMejorOferta extends JApplet
   private JComboBox jComboBox1 = new JComboBox(lista);
   private JButton jButton1 = new JButton();
   private JButton jButton2 = new JButton();
+/**
+ * @uml.property  name="ifach"
+ * @uml.associationEnd  
+ */
 InterfazFachada ifach;
   public ObtenerMejorOferta()
   {

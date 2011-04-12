@@ -3,6 +3,8 @@ package casarural;
 import java.rmi.Naming;
 import java.rmi.RMISecurityManager;
 
+import accesoDatos.GestorBD;
+
 /**
  * Activa el servidor remoto
  * 
@@ -28,8 +30,12 @@ public class ServidorRemoto {
 			// Resgistrar el servicio remoto
 			Naming.rebind(servicio, servidor);
 			System.out.println("HOLA HOLA Servicio lanzado en:\n\t" + servicio);
-		} catch (Exception e) {
-			System.out.println("Errorrrrrrrr1" +e.toString());
+			Login.getInstance().identificarse("Gorka", "gorkita");
+			 
 		}
-	}
+		catch (Exception e) {
+			System.out.println("Error  En servidor REmoto" +e.toString());
+		}
+	
+}
 }

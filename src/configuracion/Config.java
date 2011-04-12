@@ -13,32 +13,71 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
+/**
+ * @author  kdreamer
+ */
 public class Config {
 
+	/**
+	 * @uml.property  name="userBD"
+	 */
 	private String userBD;
 
+	/**
+	 * @uml.property  name="passBD"
+	 */
 	private String passBD;
 
+	/**
+	 * @uml.property  name="fuenteDatos"
+	 */
 	private String fuenteDatos;
 
+	/**
+	 * @uml.property  name="protocoloBD"
+	 */
 	private String protocoloBD;
 
+	/**
+	 * @uml.property  name="puertoBD"
+	 */
 	private String puertoBD;
 
+	/**
+	 * @uml.property  name="driverBD"
+	 */
 	private String driverBD;
 
+	/**
+	 * @uml.property  name="serverBD"
+	 */
 	private String serverBD;
 
+	/**
+	 * @uml.property  name="urlBD"
+	 */
 	private String urlBD;
 
+	/**
+	 * @uml.property  name="serverRMI"
+	 */
 	private String serverRMI;
 
+	/**
+	 * @uml.property  name="puertoRMI"
+	 */
 	private String puertoRMI;
 
+	/**
+	 * @uml.property  name="servicioRMI"
+	 */
 	private String servicioRMI;
 
 	private String urlRMI;
 
+	/**
+	 * @uml.property  name="ficheroReservas"
+	 */
 	private String ficheroReservas;
 
 	private final String USER_BD = "userBD";
@@ -65,6 +104,10 @@ public class Config {
 
 
 
+	/**
+	 * @uml.property  name="instancia"
+	 * @uml.associationEnd  
+	 */
 	private static Config instancia = new Config();
 
 	private static final String FICHERO = "src/configuracion/config.xml";
@@ -142,51 +185,99 @@ urlRMI = "rmi://" + serverRMI + ":" + puertoRMI + "/" + servicioRMI;
 		return instancia;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="userBD"
+	 */
 	public String getUserBD() {
 		return userBD;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="passBD"
+	 */
 	public String getPassBD() {
 		return passBD;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="driverBD"
+	 */
 	public String getDriverBD() {
 		return driverBD;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="fuenteDatos"
+	 */
 	public String getFuenteDatos() {
 		return fuenteDatos;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="protocoloBD"
+	 */
 	public String getProtocoloBD() {
 		return protocoloBD;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="puertoBD"
+	 */
 	public String getPuertoBD() {
 		return puertoBD;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="serverBD"
+	 */
 	public String getServerBD() {
 		return serverBD;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="urlBD"
+	 */
 	public String getUrlBD() {
 		return urlBD;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="serverRMI"
+	 */
 	public String getServerRMI() {
 		return serverRMI;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="puertoRMI"
+	 */
 	public String getPuertoRMI() {
 		return puertoRMI;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="servicioRMI"
+	 */
 	public String getServicioRMI() {
 		System.out.println("FEO "+ servicioRMI);
 		return servicioRMI;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="ficheroReservas"
+	 */
 	public String getFicheroReservas() {
 		return ficheroReservas;
 	}

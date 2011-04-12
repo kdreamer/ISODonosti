@@ -13,6 +13,7 @@ import excepciones.NoSePuedeReservarException;
 public interface InterfazFachada extends Remote
 {
   public static final int numPuerto=1099;
+  
  
   //Float calcular(Float op1,Float op2) throws RemoteException;
  /**Establece la configuracion
@@ -124,5 +125,19 @@ public interface InterfazFachada extends Remote
   * @throws RemoteException, SQLException
   */
  float anularReserva(Integer numReserva)throws RemoteException, SQLException;
+ 
+ 
+ /////////pNUEVOOOO//////
+ 
+ 
+ 
+ /**
+  * Hacer login, para distingir entre user admin y error.
+  *
+  * @param pAlias el alias del usuario
+  * @param pPassword la password del usuario
+ * @throws Exception 
+  */
+ Boolean hacerLogin(String pAlias,String pPassword) throws RemoteException, Exception;
  
 }

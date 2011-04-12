@@ -22,18 +22,30 @@ import javax.swing.BoxLayout;
 
 import casarural.Oferta;
 
+/**
+ * @author  kdreamer
+ */
 public class kisama extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
 	private JPanel jContentPane = null;
 
+	/**
+	 * @uml.property  name="scroll"
+	 */
 	private JScrollPane scroll = null;
 
+	/**
+	 * @uml.property  name="tabla"
+	 */
 	private JTable tabla = null;
 
 	private JPanel pBoton = null;
 
+	/**
+	 * @uml.property  name="boton"
+	 */
 	private JButton boton = null;
 	
 	private DefaultTableModel model;
@@ -88,8 +100,8 @@ public class kisama extends JFrame {
 
 	/**
 	 * This method initializes scroll	
-	 * 	
-	 * @return javax.swing.JScrollPane	
+	 * @return  javax.swing.JScrollPane
+	 * @uml.property  name="scroll"
 	 */
 	private JScrollPane getScroll() {
 		if (scroll == null) {
@@ -105,8 +117,8 @@ public class kisama extends JFrame {
 
 	/**
 	 * This method initializes tabla	
-	 * 	
-	 * @return javax.swing.JTable	
+	 * @return  javax.swing.JTable
+	 * @uml.property  name="tabla"
 	 */
 	private JTable getTabla() {
 		if (tabla == null) {
@@ -148,8 +160,8 @@ public class kisama extends JFrame {
 
 	/**
 	 * This method initializes boton	
-	 * 	
-	 * @return javax.swing.JButton	
+	 * @return  javax.swing.JButton
+	 * @uml.property  name="boton"
 	 */
 	private JButton getBoton() {
 		if (boton == null) {

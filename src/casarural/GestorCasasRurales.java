@@ -5,10 +5,21 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 
 import accesoDatos.GestorBD;
+/**
+ * @author  kdreamer
+ */
 public final class GestorCasasRurales
 {
-  GestorBD gbd;
-  private static GestorCasasRurales elGestorCasasRurales;
+  /**
+ * @uml.property  name="gbd"
+ * @uml.associationEnd  
+ */
+GestorBD gbd;
+  /**
+ * @uml.property  name="elGestorCasasRurales"
+ * @uml.associationEnd  
+ */
+private static GestorCasasRurales elGestorCasasRurales;
   private GestorCasasRurales() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
   {
     gbd = GestorBD.getInstance();

@@ -7,22 +7,50 @@ import java.util.ListIterator;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
+/**
+ * @author  kdreamer
+ */
 public class BuscarOfertasBean {
 
+	/**
+	 * @uml.property  name="logNeg"
+	 * @uml.associationEnd  
+	 */
 	InterfazFachada logNeg;
 
+	/**
+	 * @uml.property  name="diaIni"
+	 */
 	private String diaIni;
 
+	/**
+	 * @uml.property  name="diaFin"
+	 */
 	private String diaFin;
 
+	/**
+	 * @uml.property  name="precio"
+	 */
 	private String precio;
 
+	/**
+	 * @uml.property  name="diasMin"
+	 */
 	private String diasMin;
 
+	/**
+	 * @uml.property  name="minDormitorios"
+	 */
 	private String minDormitorios;
 
+	/**
+	 * @uml.property  name="minWC"
+	 */
 	private String minWC;
 
+	/**
+	 * @uml.property  name="orden"
+	 */
 	private String orden;
 
 	private Date diaIniDate;
@@ -59,9 +87,9 @@ public class BuscarOfertasBean {
 
 	/**
 	 * Devuelve el dia de inicio del periodo en el cual buscar ofertas
-	 * 
 	 * @param Ninguno
-	 * @return El dia de inicio
+	 * @return  El dia de inicio
+	 * @uml.property  name="diaIni"
 	 */
 	public String getDiaIni() {
 		return diaIni;
@@ -69,10 +97,9 @@ public class BuscarOfertasBean {
 
 	/**
 	 * Asigna el dia de inicio del periodo en el cual buscar ofertas
-	 * 
-	 * @param El
-	 *            dia de inicio
-	 * @return Ninguno
+	 * @param El  dia de inicio
+	 * @return  Ninguno
+	 * @uml.property  name="diaIni"
 	 */
 	public void setDiaIni(String diaIni) {
 		this.diaIni = diaIni;
@@ -96,9 +123,9 @@ public class BuscarOfertasBean {
 
 	/**
 	 * Devuelve el dia de fin del periodo en el cual buscar ofertas
-	 * 
 	 * @param Ninguno
-	 * @return El dia de fin
+	 * @return  El dia de fin
+	 * @uml.property  name="diaFin"
 	 */
 	public String getDiaFin() {
 		return diaFin;
@@ -106,10 +133,9 @@ public class BuscarOfertasBean {
 
 	/**
 	 * Asigna el dia de fin del periodo en el cual buscar ofertas
-	 * 
-	 * @param El
-	 *            dia de fin
-	 * @return Ninguno
+	 * @param El  dia de fin
+	 * @return  Ninguno
+	 * @uml.property  name="diaFin"
 	 */
 	public void setDiaFin(String diaFin) {
 		this.diaFin = diaFin;
@@ -133,9 +159,9 @@ public class BuscarOfertasBean {
 
 	/**
 	 * Devuelve el precio maximo de las ofertas a buscar
-	 * 
 	 * @param Ninguno
-	 * @return El precio
+	 * @return  El precio
+	 * @uml.property  name="precio"
 	 */
 	public String getPrecio() {
 		return precio;
@@ -143,10 +169,9 @@ public class BuscarOfertasBean {
 
 	/**
 	 * Asigna el precio maximo de las ofertas a buscar
-	 * 
-	 * @param El
-	 *            precio
-	 * @return Ninguno
+	 * @param El  precio
+	 * @return  Ninguno
+	 * @uml.property  name="precio"
 	 */
 	public void setPrecio(String precio) {
 		this.precio = precio;
@@ -168,11 +193,10 @@ public class BuscarOfertasBean {
 	}
 
 	/**
-	 * Devuelve el numero minimo de dias que tienen que tener las ofertas a
-	 * buscar
-	 * 
+	 * Devuelve el numero minimo de dias que tienen que tener las ofertas a buscar
 	 * @param Ninguno
-	 * @return El numero de dias minimo
+	 * @return  El numero de dias minimo
+	 * @uml.property  name="diasMin"
 	 */
 	public String getDiasMin() {
 		return diasMin;
@@ -180,10 +204,9 @@ public class BuscarOfertasBean {
 
 	/**
 	 * Asigna el numero minimo de dias que tienen que tener las ofertas a buscar
-	 * 
-	 * @param El
-	 *            numero de dias minimo
-	 * @return Ninguno
+	 * @param El  numero de dias minimo
+	 * @return  Ninguno
+	 * @uml.property  name="diasMin"
 	 */
 	public void setDiasMin(String diasMin) {
 		this.diasMin = diasMin;
@@ -207,23 +230,20 @@ public class BuscarOfertasBean {
 	}
 
 	/**
-	 * Devuelve el numero minimo de dormitorios que tienen que tener las casas
-	 * rurales de las ofertas a buscar
-	 * 
+	 * Devuelve el numero minimo de dormitorios que tienen que tener las casas rurales de las ofertas a buscar
 	 * @param Ninguno
-	 * @return El numero de dormitorios minimo
+	 * @return  El numero de dormitorios minimo
+	 * @uml.property  name="minDormitorios"
 	 */
 	public String getMinDormitorios() {
 		return minDormitorios;
 	}
 
 	/**
-	 * Asigna el numero minimo de dormitorios que tienen que tener las casas
-	 * rurales de las ofertas a buscar
-	 * 
-	 * @param El
-	 *            numero de dormitorios minimo
-	 * @return Ninguno
+	 * Asigna el numero minimo de dormitorios que tienen que tener las casas rurales de las ofertas a buscar
+	 * @param El  numero de dormitorios minimo
+	 * @return  Ninguno
+	 * @uml.property  name="minDormitorios"
 	 */
 	public void setMinDormitorios(String minDormitorios) {
 		this.minDormitorios = minDormitorios;
@@ -246,23 +266,20 @@ public class BuscarOfertasBean {
 	}
 
 	/**
-	 * Devuelve el numero minimo de baños que tienen que tener las casas rurales
-	 * de las ofertas a buscar
-	 * 
+	 * Devuelve el numero minimo de baños que tienen que tener las casas rurales de las ofertas a buscar
 	 * @param Ninguno
-	 * @return El numero de baños minimo
+	 * @return  El numero de baños minimo
+	 * @uml.property  name="minWC"
 	 */
 	public String getMinWC() {
 		return minWC;
 	}
 
 	/**
-	 * Asigna el numero minimo de baños que tienen que tener las casas rurales
-	 * de las ofertas a buscar
-	 * 
-	 * @param El
-	 *            numero de baños minimo
-	 * @return Ninguno
+	 * Asigna el numero minimo de baños que tienen que tener las casas rurales de las ofertas a buscar
+	 * @param El  numero de baños minimo
+	 * @return  Ninguno
+	 * @uml.property  name="minWC"
 	 */
 	public void setMinWC(String minWC) {
 		this.minWC = minWC;
@@ -285,23 +302,20 @@ public class BuscarOfertasBean {
 	}
 
 	/**
-	 * Devuelve el criterio de ordenacion de las ofertas a buscar: - 1 -->
-	 * Precio - 2 --> Numero de dias
-	 * 
+	 * Devuelve el criterio de ordenacion de las ofertas a buscar: - 1 --> Precio - 2 --> Numero de dias
 	 * @param Ninguno
-	 * @return El criterio de ordenacion
+	 * @return  El criterio de ordenacion
+	 * @uml.property  name="orden"
 	 */
 	public String getOrden() {
 		return orden;
 	}
 
 	/**
-	 * Asigna el criterio de ordenacion de las ofertas a buscar: - 1/True -->
-	 * Precio - 2/False --> Numero de dias
-	 * 
-	 * @param El
-	 *            criterio de ordenacion
-	 * @return Ninguno
+	 * Asigna el criterio de ordenacion de las ofertas a buscar: - 1/True --> Precio - 2/False --> Numero de dias
+	 * @param El  criterio de ordenacion
+	 * @return  Ninguno
+	 * @uml.property  name="orden"
 	 */
 	public void setOrden(String orden) {
 		this.orden = orden;

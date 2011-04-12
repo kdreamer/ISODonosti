@@ -5,9 +5,19 @@ import java.rmi.*;
 import configuracion.Config;
 import casarural.InterfazFachada;
 
+/**
+ * @author  kdreamer
+ */
 public class AnularReservaBean { 
 
+	/**
+	 * @uml.property  name="logNeg"
+	 * @uml.associationEnd  
+	 */
 	public static InterfazFachada logNeg;
+	/**
+	 * @uml.property  name="reserva"
+	 */
 	private String reserva;
 
 	/**
@@ -37,7 +47,8 @@ public class AnularReservaBean {
 
 	/**
 	 * Asignamos el numero de reserva.
-	 * @param numReserva
+	 * @param  numReserva
+	 * @uml.property  name="reserva"
 	 */
 	public void setReserva(String numReserva) {
 		this.reserva = numReserva;
@@ -45,7 +56,8 @@ public class AnularReservaBean {
 
 	/**
 	 * Anulamos la reserva.
-	 * @return String Resultado de anular reserva. Dinero a devolver.
+	 * @return  String Resultado de anular reserva. Dinero a devolver.
+	 * @uml.property  name="reserva"
 	 */
 	public String getReserva()	{
 		try {

@@ -12,15 +12,34 @@ import configuracion.Config;
 
 import excepciones.NoSePuedeReservarException;
 import gui.IUDevolverDinero;
+/**
+ * @author  kdreamer
+ */
 public final class GestorReservas
 {
-  private static Config conf = Config.getInstance();
+  /**
+ * @uml.property  name="conf"
+ * @uml.associationEnd  
+ */
+private static Config conf = Config.getInstance();
   protected static int numReserva = 0;
-  accesoDatos.GestorBD gbd;
-  GestorOfertas gof;
+  /**
+ * @uml.property  name="gbd"
+ * @uml.associationEnd  
+ */
+accesoDatos.GestorBD gbd;
+  /**
+ * @uml.property  name="gof"
+ * @uml.associationEnd  
+ */
+GestorOfertas gof;
   private static String ficheroNumReserva =conf.getFicheroReservas();
     
-  private static GestorReservas elGestorReservas; 
+  /**
+ * @uml.property  name="elGestorReservas"
+ * @uml.associationEnd  
+ */
+private static GestorReservas elGestorReservas; 
   
   private GestorReservas() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
   {

@@ -19,13 +19,24 @@ import accesoDatos.GestorBD;
 import junit.framework.TestCase;
 
 /**
- * @author Iraitz
- * 
+ * @author  Iraitz
  */
 public class TestAnularReserva extends TestCase {
 
+	/**
+	 * @uml.property  name="gestorBD"
+	 * @uml.associationEnd  
+	 */
 	private GestorBD gestorBD;
+	/**
+	 * @uml.property  name="gestorReservas"
+	 * @uml.associationEnd  
+	 */
 	private GestorReservas gestorReservas;
+	/**
+	 * @uml.property  name="gestorOfertas"
+	 * @uml.associationEnd  
+	 */
 	private GestorOfertas gestorOfertas;
 
 	/**

@@ -27,6 +27,9 @@ import javax.swing.JTextField;
 
 import com.toedter.calendar.JCalendar;
 
+/**
+ * @author  kdreamer
+ */
 public class BuscarOfertas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -39,32 +42,65 @@ public class BuscarOfertas extends JFrame {
 
 	private JLabel PrecioMax = null;
 
+	/**
+	 * @uml.property  name="textPrecio"
+	 */
 	private JTextField TextPrecio = null;
 
 	private JLabel NumDiasMin = null;
 
+	/**
+	 * @uml.property  name="textDias"
+	 */
 	private JTextField TextDias = null;
 
 	private JLabel Dormitorios = null;
 
+	/**
+	 * @uml.property  name="textDormitorios"
+	 */
 	private JTextField TextDormitorios = null;
 
 	private JLabel Banos = null;
 
+	/**
+	 * @uml.property  name="textBanos"
+	 */
 	private JTextField TextBanos = null;
 
+	/**
+	 * @uml.property  name="pInicio"
+	 */
 	private JPanel PInicio = null;
 
+	/**
+	 * @uml.property  name="pFin"
+	 */
 	private JPanel PFin = null;
 
+	/**
+	 * @uml.property  name="pDias"
+	 */
 	private JPanel PDias = null;
 
+	/**
+	 * @uml.property  name="pPrecio"
+	 */
 	private JPanel PPrecio = null;
 
+	/**
+	 * @uml.property  name="pDormitorios"
+	 */
 	private JPanel PDormitorios = null;
 
+	/**
+	 * @uml.property  name="pBanos"
+	 */
 	private JPanel PBanos = null;
 
+	/**
+	 * @uml.property  name="pBuscar"
+	 */
 	private JPanel PBuscar = null;
 
 	// Codigo para el JCalendar
@@ -88,12 +124,24 @@ public class BuscarOfertas extends JFrame {
 
 	private JTextArea jTextArea2 = new JTextArea();
 
+	/**
+	 * @uml.property  name="buscar"
+	 */
 	private JButton Buscar = null;
 
+	/**
+	 * @uml.property  name="pOrden"
+	 */
 	private JPanel POrden = null;
 
+	/**
+	 * @uml.property  name="rPrecio"
+	 */
 	private JRadioButton RPrecio = null;
 
+	/**
+	 * @uml.property  name="rDias"
+	 */
 	private JRadioButton RDias = null;
 
 	private JLabel JOrden = null;
@@ -162,8 +210,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes TextPrecio
-	 *
-	 * @return javax.swing.JTextField
+	 * @return  javax.swing.JTextField
+	 * @uml.property  name="textPrecio"
 	 */
 	private JTextField getTextPrecio() {
 		if (TextPrecio == null) {
@@ -175,8 +223,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes TextDias
-	 *
-	 * @return javax.swing.JTextField
+	 * @return  javax.swing.JTextField
+	 * @uml.property  name="textDias"
 	 */
 	private JTextField getTextDias() {
 		if (TextDias == null) {
@@ -188,8 +236,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes TextDormitorios
-	 *
-	 * @return javax.swing.JTextField
+	 * @return  javax.swing.JTextField
+	 * @uml.property  name="textDormitorios"
 	 */
 	private JTextField getTextDormitorios() {
 		if (TextDormitorios == null) {
@@ -201,8 +249,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes TextBaños
-	 *
-	 * @return javax.swing.JTextField
+	 * @return  javax.swing.JTextField
+	 * @uml.property  name="textBanos"
 	 */
 	private JTextField getTextBanos() {
 		if (TextBanos == null) {
@@ -214,8 +262,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes PInicio
-	 *
-	 * @return javax.swing.JPanel
+	 * @return  javax.swing.JPanel
+	 * @uml.property  name="pInicio"
 	 */
 	private JPanel getPInicio() {
 		if (PInicio == null) {
@@ -271,8 +319,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes PFin
-	 *
-	 * @return javax.swing.JPanel
+	 * @return  javax.swing.JPanel
+	 * @uml.property  name="pFin"
 	 */
 	private JPanel getPFin() {
 		if (PFin == null) {
@@ -324,8 +372,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes PDias
-	 *
-	 * @return javax.swing.JPanel
+	 * @return  javax.swing.JPanel
+	 * @uml.property  name="pDias"
 	 */
 	private JPanel getPDias() {
 		if (PDias == null) {
@@ -343,8 +391,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes PPrecio
-	 *
-	 * @return javax.swing.JPanel
+	 * @return  javax.swing.JPanel
+	 * @uml.property  name="pPrecio"
 	 */
 	private JPanel getPPrecio() {
 		if (PPrecio == null) {
@@ -360,8 +408,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes PDormitorios
-	 *
-	 * @return javax.swing.JPanel
+	 * @return  javax.swing.JPanel
+	 * @uml.property  name="pDormitorios"
 	 */
 	private JPanel getPDormitorios() {
 		if (PDormitorios == null) {
@@ -375,8 +423,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes PBanos
-	 *
-	 * @return javax.swing.JPanel
+	 * @return  javax.swing.JPanel
+	 * @uml.property  name="pBanos"
 	 */
 	private JPanel getPBanos() {
 		if (PBanos == null) {
@@ -392,8 +440,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes PBuscar
-	 *
-	 * @return javax.swing.JPanel
+	 * @return  javax.swing.JPanel
+	 * @uml.property  name="pBuscar"
 	 */
 	private JPanel getPBuscar() {
 		if (PBuscar == null) {
@@ -406,8 +454,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes Buscar
-	 *
-	 * @return javax.swing.JButton
+	 * @return  javax.swing.JButton
+	 * @uml.property  name="buscar"
 	 */
 	private JButton getBuscar() {
 		if (Buscar == null) {
@@ -497,8 +545,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes POrden
-	 *
-	 * @return javax.swing.JPanel
+	 * @return  javax.swing.JPanel
+	 * @uml.property  name="pOrden"
 	 */
 	private JPanel getPOrden() {
 		if (POrden == null) {
@@ -517,8 +565,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes RPrecio
-	 *
-	 * @return javax.swing.JRadioButton
+	 * @return  javax.swing.JRadioButton
+	 * @uml.property  name="rPrecio"
 	 */
 	private JRadioButton getRPrecio() {
 		if (RPrecio == null) {
@@ -532,8 +580,8 @@ public class BuscarOfertas extends JFrame {
 
 	/**
 	 * This method initializes RDias
-	 *
-	 * @return javax.swing.JRadioButton
+	 * @return  javax.swing.JRadioButton
+	 * @uml.property  name="rDias"
 	 */
 	private JRadioButton getRDias() {
 		if (RDias == null) {

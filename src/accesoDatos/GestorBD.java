@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import java.util.Enumeration;
 import java.util.GregorianCalendar;
 import java.util.Vector;
@@ -17,31 +18,61 @@ import configuracion.Config;
 import casarural.Casa;
 import casarural.Oferta;
 import casarural.Propietario;
+import casarural.Recorrido;
+import casarural.Servicio;
 import excepciones.NoSePuedeReservarException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GestorBD.
+ *
+ * @author  kdreamer
+ */
 public final class GestorBD {
 
+	/** The conf. @uml.property  name="conf" @uml.associationEnd */
 	private static Config conf = Config.getInstance();
+	
+	/** The Constant FUENTE_DATOS. */
 	public static final String FUENTE_DATOS = conf.getFuenteDatos();
+	
+	/** The Constant SERVER. */
 	public static final String SERVER = conf.getServerBD();
+	
+	/** The Constant PROTOCOLO. */
 	public static final String PROTOCOLO = conf.getProtocoloBD();
+	
+	/** The Constant DRIVER. */
 	public static final String DRIVER = conf.getDriverBD();
+	
+	/** The Constant SERVERRMI. */
 	public static final String	SERVERRMI= conf.getServerRMI();
 	//private static final String URL = PROTOCOLO + "://" + SERVER + "/" + FUENTE_DATOS;
-	private static final String URL = PROTOCOLO + ":"+ FUENTE_DATOS;
+	/** The Constant URL. */
+	private static final String URL = PROTOCOLO + ":"+ "//" +SERVER +"/" + FUENTE_DATOS;
+	
+	/** The Constant USER. */
 	private static final String USER = conf.getUserBD();
+	
+	/** The Constant PASS. */
 	private static final String PASS = conf.getPassBD();
+	
+	/** The el gestor bd. @uml.property  name="elGestorBD" @uml.associationEnd */
 	private static GestorBD elGestorBD;
 
+	/** The c. */
 	private Connection c;
+	
+	/** The s. */
 	private Statement s;
 
 	/**
-	 * Constructor
-	 * @throws ClassNotFoundException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
-	 * @throws SQLException 
+	 * Constructor.
+	 *
+	 * @throws InstantiationException the instantiation exception
+	 * @throws IllegalAccessException the illegal access exception
+	 * @throws ClassNotFoundException the class not found exception
+	 * @throws SQLException the sQL exception
 	 */
 	private GestorBD() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		try {
@@ -58,13 +89,13 @@ public final class GestorBD {
 	}
 
 	/**
-	 * Devuelve una instancia del gestor de la BD
+	 * Devuelve una instancia del gestor de la BD.
 	 *
 	 * @return GestorBD
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
+	 * @throws InstantiationException the instantiation exception
+	 * @throws IllegalAccessException the illegal access exception
+	 * @throws ClassNotFoundException the class not found exception
+	 * @throws SQLException the sQL exception
 	 */
 	public static GestorBD getInstance() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		if (elGestorBD == null)
@@ -73,11 +104,13 @@ public final class GestorBD {
 	}
 
 	/**
-	 * Selecciona reservas entre las fechas que se le indican
+	 * Selecciona reservas entre las fechas que se le indican.
 	 *
-	 * @param Dia
-	 *            de inicio, dia de fin y numero de casas
+	 * @param diaIni the dia ini
+	 * @param diaFin the dia fin
+	 * @param numCasa the num casa
 	 * @return Vector de objetos Oferta
+	 * @throws NoSePuedeReservarException the no se puede reservar exception
 	 */
 	public Vector seleccionarReservas(java.sql.Date diaIni,
 			java.sql.Date diaFin, int numCasa)
@@ -117,10 +150,9 @@ public final class GestorBD {
 	}
 
 	/**
-	 * Dado un numero de casa selecciona al propietario de esa casa
+	 * Dado un numero de casa selecciona al propietario de esa casa.
 	 *
-	 * @param Numero
-	 *            de casa
+	 * @param numCasa the num casa
 	 * @return El propietario
 	 */
 	public Propietario seleccionarPropietario(int numCasa)
@@ -145,10 +177,9 @@ public final class GestorBD {
 	}
 
 	/**
-	 * Devuelve las casas dado un numero de cuenta de propietario
+	 * Devuelve las casas dado un numero de cuenta de propietario.
 	 *
-	 * @param Numero
-	 *            de cuenta de propietario
+	 * @param cuentaSistema the cuenta sistema
 	 * @return Vector de objetos de la clase Casa
 	 */
 	public Vector seleccionarCasas(String cuentaSistema)
@@ -175,9 +206,8 @@ public final class GestorBD {
 	}
 
 	/**
-	 * Devuelve las todas las casas
+	 * Devuelve  todas las casas.
 	 *
-	 * @param Ninguno
 	 * @return Vector de objetos de la clase Casa
 	 */
 	public Vector seleccionarCasas()
@@ -205,26 +235,19 @@ public final class GestorBD {
 	 * Devuelve el resultado de las ofertas que interesan, según las
 	 * restricciones de fechas, precio y demás, que opcionalmente pueda haber
 	 * introducido.
-	 *
+	 * 
 	 * Para la realización de la consulta, se ha decidido generarla a medida
 	 * que se descubren los parámetros introducidos por el usuario. De esta
 	 * manera, puede capturarse cualquiera de las posibilidades introducidas por
 	 * el usuario, de una vez en una sola consulta.
 	 *
-	 * @param numDormitorios,
-	 *            mínimo número de dormitorios.
-	 * @param numBaños,
-	 *            mínimo número de baños.
-	 * @param diaIni,
-	 *            fecha de inicio de para la búsqueda de ofertas.
-	 * @param diaIni,
-	 *            fecha de finalización de para la búsqueda de ofertas.
-	 * @param precio,
-	 *            precio máximo de las ofertas a priori.
-	 * @param numMinDias,
-	 *            número mínimo de días para la estancia.
-	 * @param orden,
-	 *            ordenados por precio o por número de días.
+	 * @param numDormitorios the num dormitorios
+	 * @param numBanos the num banos
+	 * @param diaIni the dia ini
+	 * @param diaFin the dia fin
+	 * @param precio the precio
+	 * @param numMinDias the num min dias
+	 * @param orden the orden
 	 * @return Vector, un vector con las ofertas interesantes para el usuario.
 	 */
 	public Vector seleccionarCasasDorWC(int numDormitorios, int numBanos,
@@ -322,12 +345,9 @@ public final class GestorBD {
 	 * Fecha devuelve una fecha tomada de formato tres datos en formato
 	 * numérico.
 	 *
-	 * @param year,
-	 *            entero que hace referencia al año
-	 * @param month,
-	 *            entero que hace referencia al mes
-	 * @param day,
-	 *            entero que hace referencia al día
+	 * @param year the year
+	 * @param month the month
+	 * @param day the day
 	 * @return Date, la misma fecha en formato fecha (clase Date).
 	 */
 	private static java.sql.Date fecha(int year, int month, int day) {
@@ -336,11 +356,11 @@ public final class GestorBD {
 	}
 
 	/**
-	 * Selecciona las ofertas entre las fechas dadas para un numero de casa
+	 * Selecciona las ofertas entre las fechas dadas para un numero de casa.
 	 *
-	 * @param Diade
-	 *            inicio, dia de fin y numero de casa
-	 *
+	 * @param diaIni the dia ini
+	 * @param diaFin the dia fin
+	 * @param numCasa the num casa
 	 * @return Vector de objetos de la clase Oferta
 	 */
 	public Vector seleccionarOfertas(java.sql.Date diaIni,
@@ -394,12 +414,16 @@ public final class GestorBD {
 		return vectorOfertas;
 	}
 
+	
+	
+	////////////////////////////////////
 	/**
-	 * Realiza la reserva en forma de transaccion
+	 * Realiza la reserva en forma de transaccion.
 	 *
-	 * @param Vector
-	 *            de Strings numeros de oferta, numero de reserva, telefono y
-	 *            precio
+	 * @param reservasTotales the reservas totales
+	 * @param numReserva the num reserva
+	 * @param numTfnoReserva the num tfno reserva
+	 * @param precioTotal the precio total
 	 * @return Ninguno
 	 */
 	public void transaccionDeReserva(Vector reservasTotales, String numReserva,
@@ -443,12 +467,15 @@ public final class GestorBD {
 	}
 
 	/**
-	 * Realiza una trasaccion de ofertas
+	 * Realiza una trasaccion de ofertas.
 	 *
-	 * @param Vector
-	 *            de Strings numeros de oferta, dia de inicio, dia de fin,
-	 *            numero de la primera oferta, numero de la ultima oferta,precio
-	 *            y numero de casa
+	 * @param todasLasOfertasIncluidas the todas las ofertas incluidas
+	 * @param diaIni the dia ini
+	 * @param diaFin the dia fin
+	 * @param numOfePrimera the num ofe primera
+	 * @param numOfeUltima the num ofe ultima
+	 * @param precio the precio
+	 * @param numCasa the num casa
 	 * @return Ninguno
 	 */
 	public void transaccionDeOfertas(Vector todasLasOfertasIncluidas,
@@ -620,12 +647,11 @@ public final class GestorBD {
 
 	/**
 	 * Método que obtiene el número de habitaciones y de baños dado el id de
-	 * la casa
+	 * la casa.
 	 *
-	 * @param numCasa,
-	 *            id de la casa a consultar
+	 * @param numCasa the num casa
 	 * @return vector que contiene por un lado, el número de habitaciones, y
-	 *         por el otro el número de baños de dicha casa
+	 * por el otro el número de baños de dicha casa
 	 */
 	public Vector numHabitacionesnumBanos(int numCasa) {
 		Vector v = new Vector();
@@ -659,8 +685,7 @@ public final class GestorBD {
 	 * cuentan por dos. El método devolverá un único número con el total de
 	 * camas de dicha casa.
 	 *
-	 * @param numCasa,
-	 *            identificador de la casa
+	 * @param numCasa the num casa
 	 * @return el número de camas de la casa
 	 */
 	public int camas(int numCasa) {
@@ -689,15 +714,10 @@ public final class GestorBD {
 	/**
 	 * Metodo que devuelve el dia de la primera oferta de la reserva que se le pasa por parametro.
 	 *
-	 * @param numReserva,
-	 * 			identificador de la reserva
-	 * 
+	 * @param numReserva the num reserva
 	 * @return GregorianCalendar,
-	 * 			fecha de la primera oferta de la reserva pasada por parametro
-	 *
-	 * @throws SQLException,
-	 * 			Excepcion que se produce si no encuentra ninguna oferta que tenga asociada esa reserva o se produce 
-	 * 			un error al realizar la consulta a la base de datos. 
+	 * fecha de la primera oferta de la reserva pasada por parametro
+	 * @throws SQLException the sQL exception
 	 */
 	
 
@@ -725,14 +745,10 @@ public final class GestorBD {
 	/**
 	 * Metodo que anula la reserva que se le pasa por parametro.
 	 *
-	 * @param numReserva,
-	 * 			identificador de la reserva
-	 * 
+	 * @param numReserva the num reserva
 	 * @return int,
-	 * 			numero de tuplas actualizadas en la base de datos
-	 * 
-	 * @throws SQLException,
-	 * 			Excepcion que se produce cuando ocurre un error al realizar la consulta a la base de datos.
+	 * numero de tuplas actualizadas en la base de datos
+	 * @throws SQLException the sQL exception
 	 */
 
 	public int actualizarReservas(int numReserva) throws SQLException {
@@ -745,16 +761,12 @@ public final class GestorBD {
 	}
 	
 	/**
-	 * Metodo que obtiene el precio de la reserva que se le pasa por parametro
+	 * Metodo que obtiene el precio de la reserva que se le pasa por parametro.
 	 *
-	 * @param numReserva,
-	 * 			identificador de la reserva
-	 * 
+	 * @param numReserva the num reserva
 	 * @return float,
-	 * 			precio de la reserva que se le pasa por parametro
-	 * 
-	 * @throws SQLException,
-	 * 			Excepcion que se produce cuando ocurre un error al realizar la consulta a la base de datos.
+	 * precio de la reserva que se le pasa por parametro
+	 * @throws SQLException the sQL exception
 	 */
 
 	public float obtenPrecioTotal(int numReserva) throws SQLException {
@@ -776,17 +788,12 @@ public final class GestorBD {
 
 	/**
 	 * Metodo que actualiza las oferta que tienen asociado el numero de reserva que se le pasa por parametro.
-	 * Las ofertas en cuestion ya no estaran asociadas a ninguna reserva.  
+	 * Las ofertas en cuestion ya no estaran asociadas a ninguna reserva.
 	 *
-	 * @param numReserva,
-	 * 			identificador de la reserva
-	 * 
+	 * @param numReserva the num reserva
 	 * @return int,
-	 * 			numero de tuplas actualizadas en la base de datos
-	 * 
-	 * @throws SQLException,
-	 * 			Excepcion que se produce cuando ocurre un error al realizar la consulta a la base de datos.
-	 * 
+	 * numero de tuplas actualizadas en la base de datos
+	 * @throws SQLException the sQL exception
 	 */
 	public int actualizarOfertas(int numReserva) throws SQLException {
 		String upd = "UPDATE Oferta SET NumReserva = 0 WHERE NumReserva = ?";
@@ -798,17 +805,13 @@ public final class GestorBD {
 	}
 	
 	/**
-	 * Metodo que indica si la reserva que se le pasa por parametro ya ha sido pagada. 
+	 * Metodo que indica si la reserva que se le pasa por parametro ya ha sido pagada.
 	 *
-	 * @param numReserva,
-	 * 			identificador de la reserva
-	 * 
+	 * @param numReserva the num reserva
 	 * @return int,
-	 * 			valor del campo pagado de la reserva que se le pasa por parametro en la base de datos. 
-	 * 			0 indica que la reserva no ha sido pagada, y 1 que si.
-	 * 
-	 * @throws SQLException,
-	 * 			Excepcion que se produce cuando ocurre un error al realizar la consulta a la base de datos.
+	 * valor del campo pagado de la reserva que se le pasa por parametro en la base de datos.
+	 * 0 indica que la reserva no ha sido pagada, y 1 que si.
+	 * @throws SQLException the sQL exception
 	 */
 	
 	public int estaPagado(int numReserva) throws SQLException{
@@ -828,6 +831,14 @@ public final class GestorBD {
 
 		return pagado;
 }
+	
+	/**
+	 * Hacer consulta.
+	 *
+	 * @param sql the sql
+	 * @return the result set
+	 * @throws SQLException the sQL exception
+	 */
 	public ResultSet hacerConsulta(String sql) throws SQLException{
 		
 		return  s.executeQuery(sql);
@@ -835,14 +846,12 @@ public final class GestorBD {
 	}
 	
 	/**
-	 * Metodo que reinicia la base de datos. 
-	 * 
+	 * Metodo que reinicia la base de datos.
+	 *
 	 * @return int,
-	 * 			valor del campo pagado de la reserva que se le pasa por parametro en la base de datos. 
-	 * 			0 indica que la reserva no ha sido pagada, y 1 que si.
-	 * 
-	 * @throws SQLException,
-	 * 			Excepcion que se produce cuando ocurre un error al realizar la consulta a la base de datos.
+	 * valor del campo pagado de la reserva que se le pasa por parametro en la base de datos.
+	 * 0 indica que la reserva no ha sido pagada, y 1 que si.
+	 * @throws SQLException the sQL exception
 	 */
 	
 public void reiniciarBD() throws SQLException{
@@ -857,5 +866,308 @@ public void reiniciarBD() throws SQLException{
 	s.executeUpdate(consulta);	
 		
 	}
+
+
+////////////////////////////
+//NUEVO URKO
+//
+/////////////////////
+
+/**
+ * Da de alta un nuevo servicio.
+ *
+ * @param pHorario             variable de tipo DateTime, corresponde al horario del servicio
+ * @param pPuntoRecogida variable string define donde empieza el servicio
+ * @param pNumPlazas the num plazas
+ * @param d the d
+ * @param i the i
+ * @return Ninguno
+ */
+public void transaccionInsertServicio(Time pHorario,String  pPuntoRecogida, 
+		int pNumPlazas, double d,int i)
+{
+	//para el horario
+	/*
+	 * java.util.Date date = new java.util.Date();
+	 * new  java.sql.Time(date.getTime())
+	 * 
+	 */
+	String consulta = "INSERT INTO cararural2011.Servicio (horario,puntoRecogida,numPlazas,precio,idRecorrido)"
+		+ "VALUES('"
+		+ pHorario
+		+ "','"
+		+ pPuntoRecogida
+		+ "', " +  pNumPlazas + "," + d + "," + i+ ")";
+	System.out.println(consulta);
+	try
+	{
+		c.setAutoCommit(false);
+		Statement f = c.createStatement();
+		f.executeUpdate(consulta);
+	}
+	catch (Exception ex) {
+	System.out.println(ex.toString());
+	}
 }
+
+/**
+ * Da de alta un nuevo recorrido.
+ *
+ * @param pInicio variable de tipo String, determina donde (localidad o estacion) comienza el recorrido)
+ * @param pFin variable string define la �ltima parada  del servicio
+ * @return Ninguno
+ */
+public void transaccionInsertRecorrido(String pInicio,String pFin)
+{
+	
+	String consulta = "INSERT INTO cararural2011.Recorrido (inicio,fin)"
+		+ "VALUES('"
+		+ pInicio
+		+ "','"
+		+ pFin
+		+ "' )";
+	System.out.println(consulta);
+	try
+	{
+		c.setAutoCommit(false);
+		Statement f = c.createStatement();
+		f.executeUpdate(consulta);
+	}
+	catch (Exception ex) {
+	System.out.println(ex.toString());
+	}
+}
+
+/**
+ * A�ade una casaRural a un recorrido.
+ *
+ * @param pNumCasa variable de tipo int, identificador de la casaRural
+ * @param pIdRecorrido variable int correspondiente al identificador del Recorrido
+ * @return Ninguno
+ */
+public void transaccionAddCasaRecorrido(int pNumCasa,int pIdRecorrido)
+{
+	
+	String consulta = "INSERT INTO cararural2011.casaRecorrido (numCasa,idRecorrido)"
+		+ "VALUES("
+		+ pNumCasa
+		+ ","
+		+ pIdRecorrido
+		+ " )";
+	System.out.println(consulta);
+	try
+	{
+		c.setAutoCommit(false);
+		Statement f = c.createStatement();
+		f.executeUpdate(consulta);
+	}
+	catch (Exception ex) {
+	System.out.println(ex.toString());
+	}
+}
+
+	/*
+	 * Devuelve  todas los Recorridos
+	 *
+	 * @param Ninguno
+	 * @return Vector de objetos de la clase Recorrido
+	 */
+	/**
+	 * Gets the lista recorridos.
+	 *
+	 * @return the lista recorridos
+	 */
+	public Vector getListaRecorridos()
+
+	{
+		Vector vectorRecorridos = new Vector();
+		try {
+
+			// String consulta="SELECT * FROM CasaRural";
+			String consulta = "SELECT * FROM Recorrido";
+			ResultSet rs = s.executeQuery(consulta);
+			while (rs.next()) {
+				int idRecorrido = rs.getInt("idRecorrido");
+				String Inicio= rs.getString("Inicio");
+				String Fin = rs.getString("Fin");
+				Recorrido re = new Recorrido(idRecorrido,Inicio,Fin);
+				vectorRecorridos.addElement(re);
+			}
+			
+		} catch (Exception ex) {
+			System.out.println(ex.toString());
+		}
+		return vectorRecorridos;
+	}
+	
+	/**
+	 * Devuelve un propietario concreto sabiendo su alias
+	 *
+	 * @param pAlias el alias
+	 * @return el propietario de alias pAlias
+	 * @throws SQLException 
+	 */
+	public Propietario getPropietarioConcreto(String pAlias) throws SQLException
+	{
+
+		Propietario pro = new Propietario();
+		try {
+
+			String consulta = "SELECT * FROM Propietario where CuentaSistema='"+pAlias+"'";
+			//System.out.println(consulta);
+			ResultSet rs = s.executeQuery(consulta);
+		
+			 
+			  
+				 while (rs.next()) {
+					 pro.setAlias(rs.getString("CuentaSistema"));
+					pro.setPassword(rs.getString("Password"));
+					pro.setEsAdmin(rs.getBoolean("esAdmin"));
+				}
+				 rs.last(); //me coloco en la ultima pos, pq rs.next te deja al principio otra vez
+				 if ( rs.getRow()== 0 )  //no existe ese propietario
+				 { 
+						throw new SQLException("No se ha encontrado un usuario con alias = " + pAlias);
+				 } 
+		} catch (Exception ex) {
+			System.out.println(ex.toString());
+
+		}
+		return pro;	
+	}
+	/*
+* Devuelve  todas los Servicios
+	 *
+	 * @param Ninguno
+	 * @return Vector de objetos de la clase Servicio
+	 */
+	/**
+	 * Gets the lista servicios.
+	 *
+	 * @return the lista servicios
+	 */
+	public Vector getListaServicios()
+
+	{
+		Vector vectorServicios = new Vector();
+		try {
+
+			// String consulta="SELECT * FROM CasaRural";
+			String consulta = "SELECT * FROM Servicio";
+			ResultSet rs = s.executeQuery(consulta);
+			while (rs.next()) {
+				int idServicio = rs.getInt("idServicio");
+				Time horario = rs.getTime("horario");
+				String puntoRecogida = rs.getString("puntoRecogida");
+				int numPlazas = rs.getInt("numPlazas");
+				float precio = rs.getFloat("precio");
+				int idRecorrido= rs.getInt("idRecorrido");
+				
+									
+				Servicio se = new Servicio(idServicio,horario,puntoRecogida,numPlazas,numPlazas, precio,idRecorrido);
+				vectorServicios.addElement(se);
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.toString());
+		}
+		return vectorServicios;
+		
+	}
+			
+	/*
+* Devuelve  todas los Origenes
+	 *
+	 * @param Ninguno
+	 * @return Vector de String Origen
+	 */
+/**
+	 * Gets the lista origenes.
+	 *
+	 * @return the lista origenes
+	 */
+	public Vector getListaOrigenes()
+{
+	Vector vectorOrigenes = new Vector();
+	try {
+		// String consulta="SELECT * FROM CasaRural";
+		String consulta = "SELECT inicio FROM Recorrido";
+		ResultSet rs = s.executeQuery(consulta);
+		while (rs.next()) {
+			String pInicio = rs.getString("inicio");
+			vectorOrigenes.addElement(pInicio);
+		}
+	}
+	catch(Exception ex) {
+		System.out.println(ex.toString());
+	}
+		return vectorOrigenes;
+}
+
+			
+/*
+ * Resta una unidad al num de plazas libres 
+			 *
+			 * @param idServicio
+			 * 			idServicio correspondiente al servicio que queremos disminuir en una unidad
+			 * @return null
+			 */			
+/**
+ * Restar unidad servicio.
+ *
+ * @param idServicio the id servicio
+ * @param plazas the plazas
+ * @throws SQLException 
+ */
+public void restarUnidadServicio(int idServicio, int plazas) throws SQLException
+{
+	
+	try{
+		 s.executeUpdate("UPDATE Servicio SET plazasLibres= plazasLibres - " + plazas + "  WHERE idServicio="+idServicio );
+	}
+	catch (Exception ex)
+	{
+		throw new SQLException("No se ha encontrado un idServicio con idServicio= "+ idServicio );
+
+	}
+}
+	
+/**
+ * Adds the casa a recorrido.
+ *
+ * @param pNumCasa the num casa
+ * @param pIdRecorrido the id recorrido
+ */
+public void addCasaARecorrido(int pNumCasa,int pIdRecorrido)
+{
+	try
+	{
+		 String consulta = "insert into CasaRecorrido(idRecorrido, numCasa) values(?, ?)";
+
+		  PreparedStatement   pstmt = c.prepareStatement(consulta); // create a statement
+	      pstmt.setInt(1, pIdRecorrido); // set input parameter 1
+	      pstmt.setInt(2, pNumCasa); // set input parameter 2
+	      pstmt.executeUpdate(); // execute insert statement
+	}
+	catch(Exception ex) {
+		System.out.println(ex.toString());
+		
+	}
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
